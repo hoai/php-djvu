@@ -11,5 +11,10 @@
 	],
 	"require": {
 		"arhitector/zerg": "dev-master"
+	},
+	"autoload": {
+		"psr-4": {
+			"Arhitector\\Djvu\\": "src"
+		}
 	}
 }
