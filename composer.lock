@@ -1,0 +1,107 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "466b8f103d492b8652f382529962fc84",
+    "packages": [
+        {
+            "name": "arhitector/zerg",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jack-theripper/zerg.git",
+                "reference": "64c2a2eaf0c6bceed6e11cf652eccd2e56b3d0cd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jack-theripper/zerg/zipball/64c2a2eaf0c6bceed6e11cf652eccd2e56b3d0cd",
+                "reference": "64c2a2eaf0c6bceed6e11cf652eccd2e56b3d0cd",
+                "shasum": ""
+            },
+            "require": {
+                "klermonte/php-bio": "dev-master",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.2.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Zerg\\": "src/Zerg"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pavel Klementyev",
+                    "email": "klimchek@gmail.com"
+                }
+            ],
+            "description": "PHP structured binary parser",
+            "keywords": [
+                "binary"
+            ],
+            "time": "2016-12-20T08:24:50+00:00"
+        },
+        {
+            "name": "klermonte/php-bio",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/klermonte/php-bio.git",
+                "reference": "e9cd1272e567ffadf9991fd26acb2241b3beb172"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/klermonte/php-bio/zipball/e9cd1272e567ffadf9991fd26acb2241b3beb172",
+                "reference": "e9cd1272e567ffadf9991fd26acb2241b3beb172",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.2.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpBio\\": "src/PhpBio"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Klementyev",
+                    "email": "klimchek@gmail.com"
+                }
+            ],
+            "description": "PHP library to read and write binary buffers.",
+            "keywords": [
+                "Buffer",
+                "binary",
+                "php"
+            ],
+            "time": "2015-04-02T16:42:21+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "arhitector/zerg": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
