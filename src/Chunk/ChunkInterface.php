@@ -12,6 +12,8 @@
  */
 namespace Arhitector\Djvu\Chunk;
 
+use Zerg\StreamInterface;
+
 /**
  * Interface ChunkInterface
  *
@@ -19,6 +21,13 @@ namespace Arhitector\Djvu\Chunk;
  */
 interface ChunkInterface
 {
+	
+	/**
+	 * Get the stream instance.
+	 *
+	 * @return StreamInterface
+	 */
+	public function getStream();
 	
 	/**
 	 * Gets the length of the chunk data.

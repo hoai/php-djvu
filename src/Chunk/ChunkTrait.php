@@ -13,6 +13,7 @@
 namespace Arhitector\Djvu\Chunk;
 
 use InvalidArgumentException;
+use Zerg\StreamInterface;
 
 /**
  * Class ChunkTrait
@@ -36,6 +37,21 @@ trait ChunkTrait
 	 * @var string The chunk identifier.
 	 */
 	protected $name;
+	
+	/**
+	 * @var StreamInterface
+	 */
+	protected $stream;
+	
+	/**
+	 * Get the stream instance.
+	 *
+	 * @return StreamInterface
+	 */
+	public function getStream()
+	{
+		return $this->stream;
+	}
 	
 	/**
 	 * Gets the length of the chunk data.
@@ -125,4 +141,17 @@ trait ChunkTrait
 		return $this;
 	}
 	
+	/**
+	 * Sets the stream instance.
+	 *
+	 * @param \Zerg\StreamInterface $stream
+	 *
+	 * @return $this
+	 */
+	protected function setStream(StreamInterface $stream)
+	{
+		$this->stream = $stream;
+		
+		return $this;
+	}
 }
