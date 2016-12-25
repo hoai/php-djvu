@@ -13,7 +13,7 @@
 namespace Arhitector\Djvu;
 
 use Arhitector\Djvu\Chunk\ChunkInterface;
-use Arhitector\Djvu\Chunk\Form;
+use Arhitector\Djvu\Chunk\Djvu;
 use InvalidArgumentException;
 use Zerg\Endian;
 use Zerg\FileStream;
@@ -87,6 +87,26 @@ class Document
 				$this->stream->skip($length);
 			}
 		}
+	}
+	
+	/**
+	 * Returns count of pages.
+	 *
+	 * @return int
+	 */
+	public function getPages()
+	{
+		$counter = 0;
+		
+		foreach ($this->chunks as $chunk)
+		{
+			if ($chunk instanceof Djvu)
+			{
+				$counter++;
+			}
+		}
+		
+		return $counter;
 	}
 	
 	/**
