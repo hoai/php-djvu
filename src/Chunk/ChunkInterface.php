@@ -1,5 +1,4 @@
 <?php
-
 /**
  * This file is part of the arhitector/php-djvu library.
  *
@@ -34,5 +33,12 @@ interface ChunkInterface
 	 * @return int
 	 */
 	public function getOffset();
+	
+	/**
+	 * Gets the chunk identifier.
+	 *
+	 * @return string
+	 */
+	public function getName();
 	
 }
