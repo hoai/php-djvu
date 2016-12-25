@@ -41,4 +41,11 @@ interface ChunkInterface
 	 */
 	public function getName();
 	
+	/**
+	 * Checks it is sub chunk.
+	 *
+	 * @return bool
+	 */
+	public function isSubChunk();
+	
 }

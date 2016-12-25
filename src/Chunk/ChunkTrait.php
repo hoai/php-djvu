@@ -68,6 +68,16 @@ trait ChunkTrait
 	}
 	
 	/**
+	 * Checks it is sub chunk.
+	 *
+	 * @return bool
+	 */
+	public function isSubChunk()
+	{
+		return in_array($this->getName(), ['DJVU', 'DJVI', 'THUM', 'DJVM'], false);
+	}
+	
+	/**
 	 * Sets the chunk identifier.
 	 *
 	 * @param $name
