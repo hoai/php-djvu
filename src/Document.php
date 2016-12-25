@@ -12,6 +12,8 @@
  */
 namespace Arhitector\Djvu;
 
+use Arhitector\Djvu\Chunk\ChunkInterface;
+use Arhitector\Djvu\Chunk\Form;
 use InvalidArgumentException;
 use Zerg\Endian;
 use Zerg\FileStream;
@@ -36,6 +38,11 @@ class Document
 	protected $stream;
 	
 	/**
+	 * @var ChunkInterface[]
+	 */
+	protected $chunks = [];
+	
+	/**
 	 * Document constructor.
 	 *
 	 * @param string $filePath
@@ -49,7 +56,37 @@ class Document
 		$this->setFilePath($filePath);
 		$this->setStream(new FileStream($this->getFilePath(), Endian::ENDIAN_BIG, FileStream::BUFFER_BYTE));
 		
+		if ($this->getStream()->readString(4) !== 'AT&T')
+		{
+			throw new Exception('This file is not supported.');
+		}
 		
+		$chunk = null;
+		
+		while ( ! $this->stream->isEof())
+		{
+			if ($this->stream->getPosition() % 2 == 1)
+			{
+				$this->stream->skip(1);
+			}
+			
+			$id = $this->stream->readString(4);
+			$chunkClass = __NAMESPACE__.'\\Chunk\\'.ucfirst(strtolower($id));
+			
+			if (class_exists($chunkClass))
+			{
+				$this->stream->skip(-4);
+				$chunk = new $chunkClass($this->stream, $chunk, $this);
+				
+				$this->chunks[] = $chunk;
+			}
+			else
+			{
+				// unknown chunk
+				$length = $this->stream->readInt(4);
+				$this->stream->skip($length);
+			}
+		}
 	}
 	
 	/**
